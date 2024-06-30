@@ -1,5 +1,3 @@
-import ctypes
-
 class JITCompiler:
     def __init__(self):
         self.code_cache = {}
@@ -13,7 +11,7 @@ class JITCompiler:
         return compiled_code
 
     def _compile_code(self, code):
-        # Using ctypes to compile and execute code dynamically
+        # Using Python's built-in compile and exec functions for JIT compilation
         code_object = compile(code, '<string>', 'exec')
         exec(code_object)
         return code_object
