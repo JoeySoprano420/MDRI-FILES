@@ -40,6 +40,9 @@ class ExecutionEngine:
     def execute_request(self, lines):
         for line in lines:
             exec(line.strip(), self.global_vars)
+    def execute_simulation(self, lines):
+        for line in lines:
+            exec(line.strip(), self.global_vars)
 
     def execute_aot_scan(self, lines):
         for line in lines:
