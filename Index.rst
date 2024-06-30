@@ -1,6 +1,12 @@
 MDRI Processing Engine Documentation
 ====================================
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   license
+
 .. automodule:: lexer
    :members:
 
