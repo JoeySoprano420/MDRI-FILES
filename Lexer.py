@@ -5,24 +5,23 @@ class Lexer:
         self.tokens = self.tokenize(content)
 
     def tokenize(self, content):
-        # Tokenization logic with advanced regex for nested structures
         token_specification = [
-            ('SECTION', r'<SECTION>'),         # Section start
-            ('ENDSECTION', r'</SECTION>'),     # Section end
-            ('BLOCK', r'\*\*'),                # Block start/end
-            ('ACTION', r'\|\*\|'),             # Action block
-            ('STATEMENT', r'\|\_\|'),          # Statement block
-            ('REQUEST', r'\|\-\|'),            # Request block
-            ('AOT', r'\|\(<::>^<::>\)\|'),     # AOT scan block
-            ('TASK', r'\|\ \|'),               # Task block
-            ('SIMULATION', r'\|\+\|'),         # Simulation block
-            ('PRINT', r'\|\=\|'),              # Print block
-            ('PASS', r'\|\^\|'),               # Pass block
-            ('PLACEHOLDER', r'\|\#\|'),        # Placeholder block
-            ('IDENTIFIER', r'\w+'),            # Identifiers
-            ('NEWLINE', r'\n'),                # Line breaks
-            ('SKIP', r'[ \t]+'),               # Skip over spaces and tabs
-            ('MISMATCH', r'.')                 # Any other character
+            ('SECTION', r'<SECTION>'),
+            ('ENDSECTION', r'</SECTION>'),
+            ('BLOCK', r'\*\*'),
+            ('ACTION', r'\|\*\|'),
+            ('STATEMENT', r'\|\_\|'),
+            ('REQUEST', r'\|\-\|'),
+            ('AOT', r'\|\(<::>^<::>\)\|'),
+            ('TASK', r'\|\ \|'),
+            ('SIMULATION', r'\|\+\|'),
+            ('PRINT', r'\|\=\|'),
+            ('PASS', r'\|\^\|'),
+            ('PLACEHOLDER', r'\|\#\|'),
+            ('IDENTIFIER', r'\w+'),
+            ('NEWLINE', r'\n'),
+            ('SKIP', r'[ \t]+'),
+            ('MISMATCH', r'.')
         ]
         tok_regex = '|'.join('(?P<%s>%s)' % pair for pair in token_specification)
         get_token = re.compile(tok_regex).match
