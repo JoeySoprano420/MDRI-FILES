@@ -15,12 +15,12 @@ class Parser:
         return ast
 
     def parse_section(self):
-        self.pos += 1
+        self.pos += 1  # Skip SECTION token
         section_content = []
         while self.pos < len(self.tokens):
             token_type, token_value = self.tokens[self.pos]
             if token_type == 'ENDSECTION':
-                self.pos += 1
+                self.pos += 1  # Skip ENDSECTION token
                 break
             elif token_type == 'BLOCK':
                 section_content.append(self.parse_block())
@@ -30,12 +30,12 @@ class Parser:
 
     def parse_block(self):
         block_type = self.tokens[self.pos][1]
-        self.pos += 1
+        self.pos += 1  # Skip BLOCK token
         block_content = []
         while self.pos < len(self.tokens):
             token_type, token_value = self.tokens[self.pos]
             if token_type == 'BLOCK':
-                self.pos += 1
+                self.pos += 1  # Skip BLOCK token
                 break
             else:
                 block_content.append(token_value)
