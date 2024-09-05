@@ -22,7 +22,7 @@
     y = 25;
 ** 
 
-|(<::>^<::>)| Perform context-aware action 
+|(<::>^<::>)| OR |(| Perform context-aware action 
 |_|
     var difference = x - y;
     |=| "The difference between x and y is: " + difference;
